@@ -16,6 +16,5 @@ alias de=docker_enter
 alias dt='docker logs --tail=50 --follow'
 alias dstat='docker ps -q | xargs  docker stats --no-stream'
 alias di=docker_ip
-
-
+alias dips="docker ps -q | xargs docker inspect --format '{{ .Id }} - {{ .Name }} - {{range .NetworkSettings.Networks}}{{.IPAddress }}{{end}}'"
 
