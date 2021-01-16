@@ -1,0 +1,21 @@
+# docker aliases
+
+alias dc='docker-compose'
+
+function docker_enter() {
+ docker exec -it $1 bash || docker exec -it $1 sh
+}
+
+function docker_ip() {
+ docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' $1
+}
+
+alias dps='docker ps'
+alias dl='docker logs'
+alias de=docker_enter
+alias dt='docker logs --tail=50 --follow'
+alias dstat='docker ps -q | xargs  docker stats --no-stream'
+alias di=docker_ip
+
+
+
