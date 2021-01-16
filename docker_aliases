@@ -1,6 +1,5 @@
-# docker aliases
 
-alias dc='docker-compose'
+### docker aliases
 
 function docker_enter() {
  docker exec -it $1 bash || docker exec -it $1 sh
@@ -18,3 +17,6 @@ alias dstat='docker ps -q | xargs  docker stats --no-stream'
 alias di=docker_ip
 alias dips="docker ps -q | xargs docker inspect --format '{{ .Id }} - {{ .Name }} - {{range .NetworkSettings.Networks}}{{.IPAddress }}{{end}}'"
 
+# docker-compose
+alias dc='docker-compose'
+alias dclf='docker-compose logs --follow --tail=50'
