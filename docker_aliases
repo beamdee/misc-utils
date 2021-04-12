@@ -3,8 +3,12 @@
 # get them here: 
 # curl https://raw.githubusercontent.com/beamdee/misc-utils/main/docker_aliases
 
+
 function docker_enter() {
- docker exec -it $1 bash || docker exec -it $1 sh
+ container=$1
+ shift
+ [ -z "$1" ] && args=sh || args=$*
+ docker exec -it $container $args
 }
 
 function docker_ip() {
