@@ -12,7 +12,6 @@ function docker_enter() {
 }
 
 function docker_ip() {
- #docker inspect --format '{{ .Id }} - {{ .Name }} - {{range .NetworkSettings.Networks}}{{.IPAddress }} {{end}}' $1
  docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}} {{end}}' $1
 }
 
@@ -21,7 +20,8 @@ alias dpn="docker ps --format '{{.Names}}'"
 alias dl='docker logs'
 alias de=docker_enter
 alias dt='docker logs --tail=50 --follow'
-alias dstat='docker ps -q | xargs  docker stats --no-stream'
+# changed name from dstat to dostat as dstat is an existing tool
+alias dostat='docker ps -q | xargs  docker stats --no-stream'
 alias di=docker_ip
 alias dips="docker ps -q | xargs -I {} docker inspect --format '{{ .Id }} - {{ .Name }} - {{range .NetworkSettings.Networks}}{{.IPAddress }} {{end}}' {}"
 
@@ -29,3 +29,13 @@ alias dips="docker ps -q | xargs -I {} docker inspect --format '{{ .Id }} - {{ .
 # docker-compose
 alias dc='docker-compose'
 alias dclf='docker-compose logs --follow --tail=50'
+
+# useful rsync commands
+alias cprm='rsync -Par --remove-source-files'
+alias rscp='rsync -Par'
+
+# useful variables to have
+DATE=$(/bin/date +"%Y%m%d")
+TIME=$(/bin/date +"%H%M%S")
+TODAY=$DATE
+DATETIME=${DATE}-${TIME}
