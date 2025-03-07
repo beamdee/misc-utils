@@ -7,7 +7,7 @@
 function docker_enter() {
  container=$1
  shift
- [ -z "$1" ] && args=[ sh || args=$*
+ [ -z "$1" ] && args=sh || args=$*
  docker exec -it $container $args
 }
 
