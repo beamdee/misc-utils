@@ -22,7 +22,7 @@ function docker_overlays() {
 
 alias dps='docker ps'
 alias dpn="docker ps --format '{{.Names}}'" 
-alias dlt'docker logs'
+alias dl='docker logs'
 alias dlt='docker logs --timestamps'
 alias de=docker_enter
 alias dt='docker logs --tail=50 --follow'
