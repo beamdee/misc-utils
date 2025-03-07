@@ -22,9 +22,11 @@ function docker_overlays() {
 
 alias dps='docker ps'
 alias dpn="docker ps --format '{{.Names}}'" 
-alias dl='docker logs'
+alias dlt'docker logs'
+alias dlt='docker logs --timestamps'
 alias de=docker_enter
 alias dt='docker logs --tail=50 --follow'
+alias dtt='docker logs --timestamps --tail=50 --follow'
 # changed name from dstat to dostat as dstat is an existing tool
 alias dostat='docker ps -q | xargs  docker stats --no-stream'
 alias di=docker_ip
