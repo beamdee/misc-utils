@@ -31,6 +31,8 @@ alias dtt='docker logs --timestamps --tail=50 --follow'
 alias dostat='docker ps -q | xargs  docker stats --no-stream'
 alias di=docker_ip
 alias dips="docker ps -q | xargs -I {} docker inspect --format '{{ .Id }} - {{ .Name }} - {{range .NetworkSettings.Networks}}{{.IPAddress }} {{end}}' {}"
+alias dprune='docker image prune -a'
+alias dprune24='docker image prune --filter "until=24h'
 
 
 # docker-compose
